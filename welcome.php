@@ -67,7 +67,7 @@ echo '<html> <body>
       <link href="css/cover.css" rel="stylesheet">
     <body style="background-image:url(img/macaroons.jpg); background-repeat: repeat-y;">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,400italic" rel="stylesheet" type="text/css">
-
+	 <link rel="stylesheet" href="javascripts/stylesheets/jquery.sidr.dark.css">
     <div class="site-wrapper">
 
       <div class="site-wrapper-inner">
@@ -89,22 +89,10 @@ echo '<html> <body>
             </div>
           </div>
 
-          <div class="inner cover">
-            <h3 class="cover-heading">Create List</h3>
-           <div class="jumbotron">
-		<form action="createlistPHP.php" method="post">
-<table align="center">
-<tr><td style="color: black">Name your list:</td><td><input type="text" name="listmname" style="color: black"></td></tr><br/>
-		<tr><td colspan="2"> <input type="text" name="itemname" style="color: black"></td></tr><br/>
-<tr><td colspan="2" > <input type="text" name="itemname" style="color: black"></td></tr><br/>
-<tr><td colspan="2" ><input type="text" name="itemname" style="color: black"></td></tr><br/>
-<tr><td colspan="2" ><input type="text" name="itemname" style="color: black"></td></tr><br/>
-<tr><td colspan="2"><input type="text" name="itemname" style="color: black"></td></tr><br/>
-<tr><td ><button class="btn btn-success btn-block " type="submit">Go Shopping</button></td>
-		<td><button class="btn btn-success btn-block " type="submit">Save List</button></td>
-		</tr>
-</table>
-</form>
+<!-- include FRAME for expanded items to choose from when side menu category is selected. 
+	main content layer holds grocery list blank input fields that will be populated as
+	items in frame is checked and ADDed --> 
+
 		
 		</div>
            		
@@ -118,10 +106,11 @@ echo '<html> <body>
 
         </div>
 
-      </div>
-
-    </div>
-
+  
+        <!-- include jquery -->
+        <script src="javascripts/jquery.js"></script>
+        <!-- include sidr js for side bar dropdown menu of item categories -->
+        <script src="javascripts/jquery.sidr.min.js"></script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
