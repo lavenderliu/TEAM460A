@@ -5,17 +5,17 @@ session_start();  //establish session
 //get values from form
 $email =  $_POST["email"] ;
 $pw = $_POST["pw"];
- 
+
+
 // Connect to MySQL, select database
-$link = mysql_connect('localhost', 'root', '')
-or die('Could not connect: ' . mysql_error());
+$link = mysqli_connect('frodo.bentley.edu', 'cs460teama', 'Vwg*33k', 'cs460teama')
+or die('Could not connect: ' . mysqli_error());
 echo 'Connected successfully';
-mysql_select_db('cs460teama') or die('Could not select database');
 
 // Perform SQL query
 $query = "SELECT * FROM user WHERE email='$email'";
-$result = mysql_query($query) or die('Query failed: ' . mysql_error());
-$rows = mysql_num_rows($result);
+$result =mysqli_query($link,$query) or die('Query failed: ' . mysqli_error());
+$rows = mysqli_num_rows($result);
 
 //if userid not in login table, go to login page and try again
 if ($rows < 1) header("Location: login.html");
@@ -36,7 +36,7 @@ echo "</table>\n";
 */
 
 //get login table record for userid
-$line = mysql_fetch_array($result, MYSQL_ASSOC);
+$line = mysqli_fetch_array($result, MYSQL_ASSOC);
 
 //cherck password. If not correct, go to login page and try again
 if ($pw!=$line['pw']) header("Location: home.html");
@@ -47,14 +47,14 @@ $_SESSION['last'] = $line['lastlogin'];
 
 
 // Free resultset
-mysql_free_result($result);
+mysqli_free_result($result);
 
 //update last time logged in
 $update = "UPDATE user SET lastlogin=now() WHERE email='$email'";
-mysql_query($update) or die('Login time update failed : ' . mysql_error());
+mysqli_query($link, $update) or die('Login time update failed : ' . mysqli_error());
 
 // Close connection
-mysql_close($link);
+mysqli_close($link);
 
 
 //create session variable containing correct login status for use in other pages
