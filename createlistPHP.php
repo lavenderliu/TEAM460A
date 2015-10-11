@@ -8,10 +8,10 @@ if ($_SESSION['user']=="yes") {
 echo "<link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'/>";
 
 // Connect to MySQL, select database
-$link = mysql_connect('localhost', 'root', '')
-    or die('Could not connect: ' . mysql_error());
-echo 'Connected successfully.<br/>';
-mysql_select_db('cs460teama') or die('Could not select database');
+$link = mysqli_connect ( 'frodo.bentley.edu', 'cs460teama', 'Vwg*33k', 'cs460teama' ) 
+or die ( 'Could not connect: ' . mysqli_error () );
+// echo 'Connected successfully.<br/>';
+
 
 // Perform SQL query
 

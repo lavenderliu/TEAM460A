@@ -88,6 +88,7 @@ echo '<html> <body>
           </div>
 
           <div class="inner cover">
+      
            <div class="jumbotron">
 		
 		<form action="createlistPHP.php" method="post">
