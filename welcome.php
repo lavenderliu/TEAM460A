@@ -10,7 +10,7 @@ $pw = $_POST["pw"];
 // Connect to MySQL, select database
 $link = mysqli_connect('frodo.bentley.edu', 'cs460teama', 'Vwg*33k', 'cs460teama')
 or die('Could not connect: ' . mysqli_error());
-echo 'Connected successfully';
+//  echo 'Connected successfully';
 
 // Perform SQL query
 $query = "SELECT * FROM user WHERE email='$email'";
@@ -60,7 +60,7 @@ mysqli_close($link);
 //create session variable containing correct login status for use in other pages
 $_SESSION['user']="yes";
 
-echo ", Last login ".$_SESSION['last'];
+//echo ", Last login ".$_SESSION['last']; 
 echo '<html> <body>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -80,7 +80,7 @@ echo '<html> <body>
               <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="welcome.php">Create List</a></li>
-                  <li><a href="home.html">Home</a></li>
+                  <li><a href="index.html">Home</a></li>
                   <li><a href="#">Saved Lists</a></li>
 					<li><a href="#">Leave Us Feedback</a></li>
 					<li><a href="#">Log Out </a></li>

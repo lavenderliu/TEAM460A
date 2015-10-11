@@ -154,12 +154,12 @@ input {
 #wrapper p.button input{
 	width: 30%;
 	cursor: pointer;	
-	background: rgb(61, 157, 179);
+	background: rgb(235, 160, 95);
 	padding: 8px 5px;
 	font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
 	color: #fff;
 	font-size: 24px;	
-	border: 1px solid rgb(28, 108, 122);	
+	border: 1px solid rgb(235, 160, 95);	
 	margin-bottom: 10px;	
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 	-webkit-border-radius: 3px;
@@ -180,11 +180,11 @@ input {
 	        transition: all 0.2s linear;
 }
 #wrapper p.button input:hover{
-	background: rgb(74, 179, 198);
+	background: rgb(233, 180, 73);
 }
 #wrapper p.button input:active,
 #wrapper p.button input:focus{
-	background: rgb(40, 137, 154);
+	background: rgb(235, 160, 95);
 	position: relative;
 	top: 1px;
 	border: 1px solid rgb(12, 76, 87);	
