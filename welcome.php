@@ -1,66 +1,64 @@
 
-<?php 
-session_start();  //establish session
-
-//get values from form
-$email =  $_POST["email"] ;
-$pw = $_POST["pw"];
-
+<?php
+session_start (); // establish session
+                  
+// get values from form
+$email = $_POST ["email"];
+$pw = $_POST ["pw"];
 
 // Connect to MySQL, select database
-$link = mysqli_connect('frodo.bentley.edu', 'cs460teama', 'Vwg*33k', 'cs460teama')
-or die('Could not connect: ' . mysqli_error());
-//  echo 'Connected successfully';
+$link = mysqli_connect ( 'frodo.bentley.edu', 'cs460teama', 'Vwg*33k', 'cs460teama' ) or die ( 'Could not connect: ' . mysqli_error () );
+// echo 'Connected successfully';
 
 // Perform SQL query
 $query = "SELECT * FROM user WHERE email='$email'";
-$result =mysqli_query($link,$query) or die('Query failed: ' . mysqli_error());
-$rows = mysqli_num_rows($result);
+$result = mysqli_query ( $link, $query ) or die ( 'Query failed: ' . mysqli_error () );
+$rows = mysqli_num_rows ( $result );
 
-//if userid not in login table, go to login page and try again
-if ($rows < 1) header("Location: login.html");
+// if userid not in login table, go to login page and try again
+if ($rows < 1)
+	header ( "Location: login.html" );
+	
+	/*
+ * //print contents of login table to webpage, useful when debugging
+ * echo "<table>\n";
+ * //loop over result set. Print a table row for each record
+ * while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+ * echo "\t<tr>\n";
+ * //inner loop. Print each table field value for a record
+ * foreach ($line as $col_value) {
+ * echo "\t\t<td>$col_value</td>\n";
+ * }
+ * echo "\t</tr>\n";
+ * }
+ * echo "</table>\n";
+ */
+	
+// get login table record for userid
+$line = mysqli_fetch_array ( $result, MYSQL_ASSOC );
 
-/*
- //print contents of login table to webpage, useful when debugging
-echo "<table>\n";
-//loop over result set. Print a table row for each record
-while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-echo "\t<tr>\n";
-//inner loop. Print each table field value for a record
-foreach ($line as $col_value) {
-echo "\t\t<td>$col_value</td>\n";
-}
-echo "\t</tr>\n";
-}
-echo "</table>\n";
-*/
-
-//get login table record for userid
-$line = mysqli_fetch_array($result, MYSQL_ASSOC);
-
-//cherck password. If not correct, go to login page and try again
-if ($pw!=$line['pw']) header("Location: home.html");
-
-//save login record as session data, data persists over entire session
-$_SESSION['userid'] = $line['userid'];
-$_SESSION['last'] = $line['lastlogin'];
-
+// cherck password. If not correct, go to login page and try again
+if ($pw != $line ['pw'])
+	header ( "Location: home.html" );
+	
+	// save login record as session data, data persists over entire session
+$_SESSION ['userid'] = $line ['userid'];
+$_SESSION ['last'] = $line ['lastlogin'];
 
 // Free resultset
-mysqli_free_result($result);
+mysqli_free_result ( $result );
 
-//update last time logged in
+// update last time logged in
 $update = "UPDATE user SET lastlogin=now() WHERE email='$email'";
-mysqli_query($link, $update) or die('Login time update failed : ' . mysqli_error());
+mysqli_query ( $link, $update ) or die ( 'Login time update failed : ' . mysqli_error () );
 
 // Close connection
-mysqli_close($link);
+mysqli_close ( $link );
 
+// create session variable containing correct login status for use in other pages
+$_SESSION ['user'] = "yes";
 
-//create session variable containing correct login status for use in other pages
-$_SESSION['user']="yes";
-
-//echo ", Last login ".$_SESSION['last']; 
+// echo ", Last login ".$_SESSION['last'];
 echo '<html> <body>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -89,9 +87,22 @@ echo '<html> <body>
             </div>
           </div>
 
-<!-- include FRAME for expanded items to choose from when side menu category is selected. 
-	main content layer holds grocery list blank input fields that will be populated as
-	items in frame is checked and ADDed --> 
+          <div class="inner cover">
+           <div class="jumbotron">
+		
+		<form action="createlistPHP.php" method="post">
+<table align="center">
+<tr><td style="color: black">Name your list:</td><td><input type="text" name="listmname" style="color: black"></td></tr><br/>
+		<tr><td colspan="2"> <input type="text" name="itemname" style="color: black"></td></tr><br/>
+<tr><td colspan="2" > <input type="text" name="itemname" style="color: black"></td></tr><br/>
+<tr><td colspan="2" ><input type="text" name="itemname" style="color: black"></td></tr><br/>
+<tr><td colspan="2" ><input type="text" name="itemname" style="color: black"></td></tr><br/>
+<tr><td colspan="2"><input type="text" name="itemname" style="color: black"></td></tr><br/>
+<tr><td ><button class="btn btn-success btn-block " type="submit">Go Shopping</button></td>
+		<td><button class="btn btn-success btn-block " type="submit">Save List</button></td>
+		</tr>
+</table>
+</form>
 
 		
 		</div>
@@ -105,7 +116,8 @@ echo '<html> <body>
           </div>
 
         </div>
-
+</div>
+		</div>
   
         <!-- include jquery -->
         <script src="javascripts/jquery.js"></script>
@@ -120,6 +132,5 @@ echo '<html> <body>
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>';
-
 
 ?>
