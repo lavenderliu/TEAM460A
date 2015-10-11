@@ -2,6 +2,9 @@
 <html>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/cover.css" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="css/demo.css" >
+        <link rel="stylesheet" type="text/css" href="css/style.css" >
+		<link rel="stylesheet" type="text/css" href="css/animate-custom.css" >
 <body style='background-image:url(img/cover.jpg)'>
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,400italic' rel='stylesheet' type='text/css'>
 <body>
@@ -13,17 +16,17 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">Wholefoods Grocery List</h3>
+              <h1 class="masthead-brand">Wholefoods Grocery List</h1>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li ><a href="home.html">Home</a></li>
-                  <li class="active"><a href="#">Log In</a></li>
-                  <li><a href="#">Sign Up</a></li>
-                </ul>
+                  <li ><a href="index.html">Home</a></li>
+                  <li class="active"><a href="#">Create List</a></li>
+                    </ul>
               </nav>
             </div>
           </div>
 
+<!-- 
 <div class= "inner cover">
 <h1>User Log In</h1>
 <form class="form-signin" role="form" action="welcome.php" method="post">
@@ -37,7 +40,64 @@
 </table>
 </form>
 </div>
+ -->
 
+<div id="container_demo" >
+	<!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+	<a class="hiddenanchor" id="toregister"></a>
+	<a class="hiddenanchor" id="tologin"></a>
+	<div id="wrapper">
+		<div id="login" class="animate form">
+		<form class="form-signin" role="form" action="welcome.php" method="post">
+			
+				<h1>Log in</h1> 
+				<p> 
+					<label for="username" class="uname" data-icon="u" > Your email </label>
+					<input id="username" name="email" required="required" type="text" placeholder="mymail@mail.com"/>
+				</p>
+				<p> 
+					<label for="password" class="youpasswd" data-icon="p"> Your password </label>
+					<input id="password" name="pw" required="required" type="password" placeholder="eg. X8df!90EO" /> 
+				</p>
+
+				<p class="login button"> 
+					<input type="submit" value="Login" /> 
+				</p>
+				<p class="change_link">
+					Not a member yet ?
+					<a href="#toregister" class="to_register">Join us</a>
+				</p>
+			</form>
+		
+		</div>
+
+		<div id="register" class="animate form">
+			<form  action="mysuperscript.php" autocomplete="on"> 
+				<h1> Sign up </h1> 
+				<p> 
+					<label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
+					<input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+				</p>
+				<p> 
+					<label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+					<input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+				</p>
+				<p> 
+					<label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
+					<input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+				</p>
+				<p class="signin button"> 
+					<input type="submit" value="Sign up"/> 
+				</p>
+				<p class="change_link">  
+					Already a member ?
+					<a href="#tologin" class="to_register"> Go and log in </a>
+				</p>
+			</form>
+		</div>
+		
+	</div>
+</div>  
           <div class="mastfoot">
             <div class="inner">
               <p>2015 | CS460 Team A</p>
