@@ -93,12 +93,12 @@ echo '<html> <body>
 		
 		<form action="createlistPHP.php" method="post">
 <table align="center">
-<tr><td style="color: black">Name your list:</td><td><input type="text" name="listmname" style="color: black"></td></tr><br/>
-		<tr><td colspan="2"> <input type="text" name="itemname" style="color: black"></td></tr><br/>
-<tr><td colspan="2" > <input type="text" name="itemname" style="color: black"></td></tr><br/>
-<tr><td colspan="2" ><input type="text" name="itemname" style="color: black"></td></tr><br/>
-<tr><td colspan="2" ><input type="text" name="itemname" style="color: black"></td></tr><br/>
-<tr><td colspan="2"><input type="text" name="itemname" style="color: black"></td></tr><br/>
+<tr><td style="color: black">Name your list:</td><td><input type="text" name="listname" style="color: black"></td></tr><br/>
+		<tr><td colspan="2"> <input type="text" name="itemname[]" style="color: black"></td></tr><br/>
+<tr><td colspan="2" > <input type="text" name="itemname[]" style="color: black"></td></tr><br/>
+<tr><td colspan="2" ><input type="text" name="itemname[]" style="color: black"></td></tr><br/>
+<tr><td colspan="2" ><input type="text" name="itemname[]" style="color: black"></td></tr><br/>
+<tr><td colspan="2"><input type="text" name="itemname[]" style="color: black"></td></tr><br/>
 <tr><td ><button class="btn btn-success btn-block " type="submit">Go Shopping</button></td>
 		<td><button class="btn btn-success btn-block " type="submit">Save List</button></td>
 		</tr>
